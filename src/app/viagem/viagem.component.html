@@ -1,0 +1,67 @@
+<form [formGroup]="viagemForm" (ngSubmit)="onSubmit()" class="container mt-4">
+    <div class="row">
+
+      <div class="form-group col-md-6">
+        <label for="destino" class="form-label">Destino:</label>
+        <select id="destino" class="form-control" formControlName="destino">
+          <option value="" disabled>Selecione o destino</option>
+          <option value="Paris">Paris</option>
+          <option value="Nova York">Nova York</option>
+          <option value="Tóquio">Tóquio</option>
+          <option value="Rio de Janeiro">Rio de Janeiro</option>
+        </select>
+        <div *ngIf="viagemForm.get('destino')?.invalid && viagemForm.get('destino')?.touched" class="text-danger mt-1">
+          {{ getErrorMessage('destino') }}
+        </div>
+      </div>
+  
+
+      <div class="form-group col-md-6">
+        <label for="dataIda" class="form-label">Data de Ida:</label>
+        <input id="dataIda" type="date" class="form-control" formControlName="dataIda">
+        <div *ngIf="viagemForm.get('dataIda')?.invalid && viagemForm.get('dataIda')?.touched" class="text-danger mt-1">
+          {{ getErrorMessage('dataIda') }}
+        </div>
+      </div>
+    </div>
+  
+    <div class="row mt-3">
+  
+      <div class="form-group col-md-6">
+        <label for="dataVolta" class="form-label">Data de Volta:</label>
+        <input id="dataVolta" type="date" class="form-control" formControlName="dataVolta">
+        <div *ngIf="viagemForm.get('dataVolta')?.invalid && viagemForm.get('dataVolta')?.touched" class="text-danger mt-1">
+          {{ getErrorMessage('dataVolta') }}
+        </div>
+      </div>
+  
+
+      <div class="form-group col-md-6">
+        <label for="numeroPassageiros" class="form-label">Número de Passageiros:</label>
+        <input id="numeroPassageiros" type="number" class="form-control" formControlName="numeroPassageiros">
+        <div *ngIf="viagemForm.get('numeroPassageiros')?.invalid && viagemForm.get('numeroPassageiros')?.touched" class="text-danger mt-1">
+          {{ getErrorMessage('numeroPassageiros') }}
+        </div>
+      </div>
+    </div>
+  
+    <div class="row mt-3">
+
+      <div class="form-group col-md-12">
+        <label for="emailContato" class="form-label">E-mail de Contato:</label>
+        <input id="emailContato" type="email" class="form-control" formControlName="emailContato">
+        <div *ngIf="viagemForm.get('emailContato')?.invalid && viagemForm.get('emailContato')?.touched" class="text-danger mt-1">
+          {{ getErrorMessage('emailContato') }}
+        </div>
+      </div>
+    </div>
+  
+   
+    <div class="row mt-4">
+      <div class="col-md-12 text-center">
+        <button type="submit" class="btn btn-primary" [disabled]="viagemForm.invalid">Enviar</button>
+      </div>
+    </div>
+  </form>
+  
+  
